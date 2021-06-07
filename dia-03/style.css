@@ -14,7 +14,7 @@ body {
 section {
   width: 100%;
   height: 100%;
-
+  position: relative;
   overflow: hidden;
 }
 
@@ -26,16 +26,15 @@ section {
   align-items: center;
 
   text-transform: uppercase;
-  font-size: 10rem;
+  font-size: min(10rem, 15vw);
   font-weight: bolder;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .text > p {
   width: 100vw;
 
-  animation: textMoving 20s linear infinite;
+  animation: textMoving 10s linear infinite;
 }
 
 #left-side p {
@@ -62,6 +61,6 @@ section {
     right: -100vw;
   }
   to {
-    right: 150vw;
+    right: 200vw;
   }
 }
