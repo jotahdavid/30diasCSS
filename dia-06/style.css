@@ -1,0 +1,67 @@
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(36, 36, 36);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div > span {
+  font-size: min(6rem, 7vw);
+  color: rgb(66, 66, 67);
+  letter-spacing: .5rem;
+}
+
+div > span:nth-child(1) {
+  animation: lightning 1.6s infinite;
+}
+div > span:nth-child(2) {
+  animation: lightning 1.6s 100ms infinite;
+}
+div > span:nth-child(3) {
+  animation: lightning 1.6s 200ms infinite;
+}
+div > span:nth-child(4) {
+  animation: lightning 1.6s 300ms infinite;
+}
+div > span:nth-child(5) {
+  animation: lightning 1.6s 400ms infinite;
+}
+div > span:nth-child(6) {
+  animation: lightning 1.6s 500ms infinite;
+}
+div > span:nth-child(7) {
+  animation: lightning 1.6s 600ms infinite;
+}
+div > span:nth-child(8) {
+  animation: lightning 1.6s 700ms infinite;
+}
+div > span:nth-child(9) {
+  animation: lightning 1.6s 800ms infinite;
+}
+div > span:nth-child(10) {
+  animation: lightning 1.6s 900ms infinite;
+}
+div > span:nth-child(11) {
+  animation: lightning 1.6s 1000ms infinite;
+}
+
+@keyframes lightning {
+  0%, 90% {
+    color: rgb(66, 66, 67);
+    text-shadow: none;
+    filter: blur(0);
+  }
+  100% {
+    color: yellow;
+    text-shadow: 1px 1px 1.5rem rgb(128, 128, 0), -1px -1px 1.5rem rgb(128, 128, 0);
+    filter: blur(1px);
+  }
+}
