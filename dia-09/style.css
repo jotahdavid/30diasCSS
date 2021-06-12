@@ -1,0 +1,93 @@
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: rgb(44, 61, 79);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#pendulum {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+#pendulum::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: -5px;
+}
+
+#pendulum > .ball {
+  width: 5px;
+  height: 400px;
+  background-color: #fff;
+  position: relative;
+  transform-origin: 50% 0;
+}
+
+#pendulum > .ball:nth-child(1) {
+  animation: swingLeft 3900ms infinite ease-in-out;
+}
+
+#pendulum > .ball:nth-child(5) {
+  animation: swingRight 3900ms 1900ms infinite ease-in-out;
+}
+
+#pendulum > .ball::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: inherit;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+@keyframes swingLeft {
+  0%, 50%, 100% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes swingRight {
+  0%, 50%, 100% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-45deg);
+  }
+}
+
+@media (max-width: 500px) {
+  #pendulum {
+    width: 50vw;
+  }
+  #pendulum > .ball {
+    height: 60vw;
+  }
+  #pendulum > .ball::after {
+    width: 10vw;
+    height: 10vw;
+  }
+}
