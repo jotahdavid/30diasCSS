@@ -1,0 +1,52 @@
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font-size: min(2.5rem, 10vw);
+  color: #fff;
+
+  background-color: transparent;
+  padding: min(2rem, 12vw) min(3rem, 15vw);
+  border: 2px solid #fff;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "✔️ Dia 16";
+  color: #0a7715;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: #BCEFC1;
+
+  position: absolute;
+  left: 0;
+  top: -100%;
+
+  transition: inset 700ms ease;
+}
+
+button:hover::before {
+  top: 0;
+}
