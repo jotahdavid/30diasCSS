@@ -1,0 +1,127 @@
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-color: #456B84;
+  --secondary-color: #fff;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+
+body,
+.icon, .icon > i, 
+.icon::before,
+.icon::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  width: min(800px, 90%);
+  margin: 0 auto;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.icon {
+  min-width: 100px;
+  min-height: 100px;
+  width: min(150px, 18vw);
+  height: min(150px, 18vw);
+  background-color: var(--secondary-color);
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.icon > i {
+  width: 100%;
+  height: 100%;
+
+  font-size: min(4rem, 9vw);
+  color: var(--primary-color);
+  border-radius: 50%;
+
+  transition: color .2s ease;
+}
+
+.icon::before, .icon::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+
+  position: absolute;
+  transition-property: width, height, opacity;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+}
+
+.icon::before {
+  background-color: var(--primary-color);
+}
+
+.icon::after {
+  border: 2.5px dashed var(--primary-color);
+  background-color: transparent;
+}
+
+.icon:hover > i {
+  position: relative;
+  z-index: 2;
+  color: var(--secondary-color);
+}
+
+.icon:hover::before {
+  width: 80%;
+  height: 80%;
+  opacity: 1;
+}
+
+.icon:hover::after {
+  animation: rotate 10s linear infinite;
+  width: calc(80% + 8%);
+  height: calc(80% + 8%);
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 500px ) {
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-content: center;
+    justify-items: center;
+  }
+
+  .icon > i {
+    font-size: 2.5rem;
+  }
+}
