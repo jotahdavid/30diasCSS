@@ -1,0 +1,135 @@
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+  height: 65px;
+}
+
+header, nav {
+  width: 100%;
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem;
+
+  position: relative;
+}
+
+.links-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.links-list > .links-item {
+  padding: .5rem;
+}
+
+.links-list > .links-item:last-of-type > a {
+  color: rgb(0, 173, 0);
+}
+
+.links-list > .links-item > a {
+  color: gray;
+  padding: .5rem;
+  position: relative;
+}
+
+.links-list > .links-item > a::before {
+  content: "";
+  display: block;
+  opacity: 0;
+  transform: scaleX(0);
+
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+
+  transition: opacity .4s ease, transform .5s ease;
+}
+
+.links-list > .links-item > a:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.menu-hamburger {
+  width: 30px;
+  height: 25px;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.menu-hamburger > .line {
+  background-color: gray;
+  width: 100%;
+  height: 4px;
+  border-radius: 20px;
+}
+
+@media (max-width: 600px) {
+  .links-list {
+    display: none;
+  }
+
+  .menu-hamburger {
+    display: flex;
+  }
+
+  .links-list.--active {
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: calc(100vh - 100%);
+
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 100%;
+  }
+
+  .links-list.--active > .links-item {
+    width: 100%;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+  }
+
+  .links-list.--active > .links-item > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .links-list.--active > .links-item > a::before {
+    display: none;
+  }
+}
